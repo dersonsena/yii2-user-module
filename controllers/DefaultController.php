@@ -3,8 +3,8 @@
 namespace dersonsena\userModule\controllers;
 
 use Yii;
-use app\modules\backend\models\Usuario;
-use app\modules\backend\models\UsuarioSearch;
+use dersonsena\userModule\models\User;
+use dersonsena\userModule\models\search\UserSearch;
 use yii\web\Controller;
 
 class DefaultController extends Controller
@@ -17,7 +17,7 @@ class DefaultController extends Controller
      */
     protected function getModel()
     {
-        return new Usuario;
+        return new User;
     }
 
     /**
@@ -25,6 +25,6 @@ class DefaultController extends Controller
      */
     protected function getModelSearch()
     {
-        return new UsuarioSearch;
+        return new UserSearch;
     }
 }

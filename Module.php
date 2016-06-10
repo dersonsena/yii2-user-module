@@ -1,6 +1,8 @@
 <?php
 
-class Module extends yii\base\Module
+namespace dersonsena\userModule;
+
+class Module extends \yii\base\Module
 {
 
 }

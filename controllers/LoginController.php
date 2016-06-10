@@ -3,10 +3,10 @@
 namespace dersonsena\userModule\controllers;
 
 use Yii;
-use app\modules\backend\forms\ForgotPasswordForm;
-use app\modules\backend\forms\LoginForm;
-use app\modules\backend\forms\RenewPasswordForm;
-use app\modules\backend\models\Usuario;
+use dersonsena\userModule\forms\ForgotPasswordForm;
+use dersonsena\userModule\forms\LoginForm;
+use dersonsena\userModule\forms\RenewPasswordForm;
+use dersonsena\userModule\models\User;
 use yii\base\Exception;
 use yii\base\UserException;
 use yii\web\Controller;
@@ -107,8 +107,8 @@ class LoginController extends Controller
             if(empty($token) || is_null($token))
                 throw new Exception('Não foi informado o seu token de alteração de senha.');
 
-            /** @var Usuario $user */
-            $user = Usuario::findOne(['token' => $token]);
+            /** @var User $user */
+            $user = User::findOne(['token' => $token]);
 
             if (!$user)
                 throw new Exception('O Token informado é inválido e/ou está fora de validade.');

@@ -2,9 +2,9 @@
 
 namespace dersonsena\userModule\controllers;
 
+use dersonsena\userModule\models\Group;
+use dersonsena\userModule\models\search\GroupSearch;
 use yii\base\Controller;
-use app\modules\backend\models\Grupo;
-use app\modules\backend\models\GrupoSearch;
 
 class GroupsController extends Controller
 {
@@ -15,7 +15,7 @@ class GroupsController extends Controller
      */
     protected function getModel()
     {
-        return new Grupo;
+        return new Group;
     }
 
     /**
@@ -23,6 +23,6 @@ class GroupsController extends Controller
      */
     protected function getModelSearch()
     {
-        return new GrupoSearch;
+        return new GroupSearch;
     }
 }
