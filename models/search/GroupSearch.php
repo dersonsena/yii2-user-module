@@ -16,7 +16,7 @@ class GroupSearch extends Group
     {
         return [
             [['id', 'status'], 'integer'],
-            [['nome'], 'string', 'max' => 60],
+            [['name'], 'string', 'max' => 60],
         ];
     }
 
@@ -47,8 +47,8 @@ class GroupSearch extends Group
 
         $query->andFilterWhere(['id' => $this->id]);
         $query->andFilterWhere(['status' => $this->status]);
-        $query->andFilterWhere(['like', 'nome', $this->nome]);
-        $query->orderBy('nome');
+        $query->andFilterWhere(['like', 'name', $this->name]);
+        $query->orderBy('name');
 
         return $dataProvider;
     }

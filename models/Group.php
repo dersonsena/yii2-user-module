@@ -6,18 +6,18 @@ use Yii;
 use dersonsena\commonClasses\ModelBase;
 
 /**
- * This is the model class for table "grupos".
+ * This is the model class for table "groups".
  *
  * @property integer $id
- * @property string $nome
+ * @property string $name
  * @property integer $status
  * @property integer $deleted
  * @property string $created_at
  * @property string $updated_at
- * @property integer $usuario_ins_id
+ * @property integer $created_by
  *
  * @property User[] $users
- * @property User $userIns
+ * @property User $createdBy
  */
 class Group extends ModelBase
 {
@@ -37,10 +37,10 @@ class Group extends ModelBase
     public function rules()
     {
         return [
-            [['nome'], 'required'],
-            [['status', 'deleted', 'usuario_ins_id'], 'integer'],
+            [['name'], 'required'],
+            [['status', 'deleted', 'created_by'], 'integer'],
             [['created_at', 'updated_at'], 'safe'],
-            [['nome'], 'string', 'max' => 60],
+            [['name'], 'string', 'max' => 60],
         ];
     }
 
@@ -51,11 +51,11 @@ class Group extends ModelBase
     {
         return [
             'id' => $this->idLabel,
-            'nome' => 'Nome',
+            'name' => 'Nome',
             'status' => $this->statusLabel,
             'created_at' => $this->createdAtLabel,
             'updated_at' => $this->updateAtLabel,
-            'usuario_ins_id' => $this->userInsIdLabel,
+            'created_by' => $this->userInsIdLabel,
         ];
     }
 
@@ -70,8 +70,8 @@ class Group extends ModelBase
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getUsuarioIns()
+    public function getCreatedBy()
     {
-        return $this->hasOne(User::className(), ['id' => 'usuario_ins_id']);
+        return $this->hasOne(User::className(), ['id' => 'created_by']);
     }
 }

@@ -5,8 +5,6 @@
 use dersonsena\userModule\models\Group;
 use kartik\form\ActiveForm;
 use kartik\password\PasswordInput;
-use yii\bootstrap\Html;
-
 ?>
 
 <?php $form = ActiveForm::begin() ?>
@@ -15,7 +13,7 @@ use yii\bootstrap\Html;
 
     <div class="box form-actions">
         <div class="box-body">
-            <?= $this->render('@backend/views/partials/crud/form-default-buttons') ?>
+            <?= $this->render('@common-classes/views/crud/form-default-buttons') ?>
         </div>
     </div>
 
@@ -30,7 +28,7 @@ use yii\bootstrap\Html;
             <div class="row">
 
                 <div class="col-md-4">
-                    <?= $form->field($model, 'nome') ?>
+                    <?= $form->field($model, 'name') ?>
                 </div>
 
                 <div class="col-md-4">
@@ -40,8 +38,8 @@ use yii\bootstrap\Html;
                 </div>
 
                 <div class="col-md-4">
-                    <?= $form->field($model, 'grupo_id', ['template'=>"{label}{input}{error}{hint}"])
-                        ->dropDownList((new Group)->getDropdownOptions('nome'), [
+                    <?= $form->field($model, 'group_id', ['template'=>"{label}{input}{error}{hint}"])
+                        ->dropDownList((new Group)->getDropdownOptions('name'), [
                             'prompt' => 'Selecione um Grupo de Usuário...'
                         ]) ?>
                 </div>
@@ -50,7 +48,7 @@ use yii\bootstrap\Html;
 
             <div class="row">
                 <div class="col-md-4">
-                    <?= $form->field($model, 'senha')
+                    <?= $form->field($model, 'password')
                         ->passwordInput(['maxlength' => true])
                         ->hint($model->isNewRecord ? null : 'Mantenha o campo vazio para que a senha atual não seja alterada.')
                         ->widget(PasswordInput::classname(), [

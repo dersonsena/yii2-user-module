@@ -1,12 +1,10 @@
 <?php
 /* @var $this yii\web\View */
-/* @var $searchModel \app\modules\backend\models\UsuarioSearch */
+/* @var $searchModel \dersonsena\userModule\models\search\UserSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-use app\common\controller\ControllerBase;
-use app\modules\backend\models\Grupo;
-use app\modules\backend\models\Usuario;
-use yii\grid\DataColumn;
+use dersonsena\commonClasses\controller\ControllerBase;
+use dersonsena\userModule\models\Group;
 use yii\grid\GridView;
 use yii\widgets\Pjax;
 
@@ -17,7 +15,7 @@ $this->params['breadcrumbs'][] = $this->context->controllerDescription;
     <div class="box-body">
 
         <section class="well well-sm">
-            <?= $this->render('@backend/views/partials/crud/index-default-actions') ?>
+            <?= $this->render('@common-classes/views/crud/index-default-actions') ?>
         </section>
         
         <?php Pjax::begin() ?>
@@ -31,8 +29,8 @@ $this->params['breadcrumbs'][] = $this->context->controllerDescription;
                     'contentOptions' => ['class' => 'text-right'],
                 ],
                 [
-                    'attribute' => 'nome',
-                    'class' => 'app\common\components\LinkDataColumn',
+                    'attribute' => 'name',
+                    'class' => 'dersonsena\commonClasses\components\grid\LinkDataColumn',
                 ],
                 [
                     'attribute' => 'email',
@@ -40,17 +38,17 @@ $this->params['breadcrumbs'][] = $this->context->controllerDescription;
                     'headerOptions' => ['style' => 'width: 250px'],
                 ],
                 [
-                    'attribute' => 'grupo_id',
-                    'filter' => (new Grupo)->getDropdownOptions('nome'),
+                    'attribute' => 'group_id',
+                    'filter' => (new Group)->getDropdownOptions('name'),
                     'headerOptions' => ['style' => 'width: 150px'],
-                    'value' => 'grupo.nome'
+                    'value' => 'group.name'
                 ],
                 [
                     'attribute' => 'status',
-                    'class' => 'app\common\components\YesNoDataColumn',
+                    'class' => 'dersonsena\commonClasses\components\grid\YesNoDataColumn',
                     'filter' => ControllerBase::getStatus()
                 ],
-                ['class' => 'app\common\components\ActionGridColumn'],
+                ['class' => 'dersonsena\commonClasses\components\grid\ActionGridColumn'],
             ],
         ]) ?>
         <?php Pjax::end() ?>

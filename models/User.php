@@ -7,23 +7,23 @@ use dersonsena\commonClasses\ModelBase;
 use yii\web\IdentityInterface;
 
 /**
- * This is the model class for table "usuarios".
+ * This is the model class for table "users".
  *
  * @property integer $id
- * @property integer $grupo_id
- * @property string $nome
+ * @property integer $group_id
+ * @property string $name
  * @property string $email
- * @property string $senha
+ * @property string $password
  * @property string $auth_key
  * @property string $access_token
  * @property integer $status
  * @property integer $deleted
  * @property string $created_at
  * @property string $updated_at
- * @property integer $usuario_ins_id
+ * @property integer $created_by
  *
  * @property Group $group
- * @property User $userIns
+ * @property User $createdBy
  */
 class User extends ModelBase implements IdentityInterface
 {
@@ -34,7 +34,7 @@ class User extends ModelBase implements IdentityInterface
 
     /**
      * @var string atributo para ser utilizado ao atualizar
-     * a senha de acesso do usuario
+     * a password de acesso do usuario
      */
     public $currentPassword;
 
@@ -52,16 +52,17 @@ class User extends ModelBase implements IdentityInterface
     public function rules()
     {
         return [
-            [['grupo_id', 'nome', 'email'], 'required'],
-            [['senha', 'repeatPassword'], 'required', 'on' => 'create'],
-            [['grupo_id', 'status', 'deleted', 'usuario_ins_id'], 'integer'],
+            [['group_id', 'name', 'email'], 'required'],
+            ['email', 'email'],
+            [['password', 'repeatPassword'], 'required', 'on' => 'create'],
+            [['group_id', 'status', 'deleted', 'created_by'], 'integer'],
             [['created_at', 'updated_at'], 'safe'],
-            [['nome', 'email', 'senha'], 'string', 'max' => 60],
+            [['name', 'email', 'password'], 'string', 'max' => 60],
             [['auth_key'], 'string', 'max' => 32],
             [['access_token'], 'string', 'max' => 255],
-            ['repeatPassword', 'compare', 'compareAttribute' => 'senha', 'skipOnEmpty' => false],
+            ['repeatPassword', 'compare', 'compareAttribute' => 'password', 'skipOnEmpty' => false],
             [['status','deleted'], 'boolean'],
-            [['grupo_id'], 'exist', 'skipOnError' => true, 'targetClass' => Group::className(), 'targetAttribute' => ['grupo_id' => 'id']],
+            [['group_id'], 'exist', 'skipOnError' => true, 'targetClass' => Group::className(), 'targetAttribute' => ['group_id' => 'id']],
         ];
     }
 
@@ -72,17 +73,17 @@ class User extends ModelBase implements IdentityInterface
     {
         return [
             'id' => $this->idLabel,
-            'grupo_id' => 'Grupos de Usuário',
-            'nome' => 'Nome',
+            'group_id' => 'Grupos de Usuário',
+            'name' => 'Nome',
             'email' => 'E-mail',
-            'senha' => 'Senha',
+            'password' => 'Senha',
             'auth_key' => 'Auth Key',
             'access_token' => 'Access Token',
             'status' => 'Usuário ativo',
             'created_at' => $this->createdAtLabel,
             'updated_at' => $this->updateAtLabel,
-            'usuario_ins_id' => $this->userInsIdLabel,
-            'repeatPassword' => 'Repita sua senha'
+            'created_by' => $this->userInsIdLabel,
+            'repeatPassword' => 'Repita sua password'
         ];
     }
 
@@ -97,9 +98,9 @@ class User extends ModelBase implements IdentityInterface
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getUserIns()
+    public function getCreatedBy()
     {
-        return $this->hasOne(User::className(), ['id' => 'user_ins_id']);
+        return $this->hasOne(User::className(), ['id' => 'created_by']);
     }
 
     /**
@@ -107,10 +108,10 @@ class User extends ModelBase implements IdentityInterface
      */
     public function afterFind()
     {
-        $this->currentPassword = $this->senha;
+        $this->currentPassword = $this->password;
 
         if (!$this->isNewRecord)
-            $this->senha = '';
+            $this->password = '';
 
         parent::afterFind();
     }
@@ -121,16 +122,16 @@ class User extends ModelBase implements IdentityInterface
     public function beforeSave($insert)
     {
         if ($this->isNewRecord) {
-            $this->senha = Yii::$app->getSecurity()->generatePasswordHash($this->senha);
-            $this->repeatPassword = $this->senha;
+            $this->password = Yii::$app->getSecurity()->generatePasswordHash($this->password);
+            $this->repeatPassword = $this->password;
             $this->auth_key = Yii::$app->getSecurity()->generateRandomString(70);
         } else {
-            if (empty($this->senha)) {
-                $this->senha = $this->currentPassword;
+            if (empty($this->password)) {
+                $this->password = $this->currentPassword;
                 $this->repeatPassword = $this->currentPassword;
             } else {
-                $this->senha = Yii::$app->getSecurity()->generatePasswordHash($this->senha);
-                $this->repeatPassword = $this->senha;
+                $this->password = Yii::$app->getSecurity()->generatePasswordHash($this->password);
+                $this->repeatPassword = $this->password;
             }
         }
 

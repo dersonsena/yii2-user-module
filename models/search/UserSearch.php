@@ -15,8 +15,8 @@ class UserSearch extends User
     public function rules()
     {
         return [
-            [['id', 'grupo_id', 'status'], 'integer'],
-            [['nome','email'], 'string', 'max' => 60],
+            [['id', 'group_id', 'status'], 'integer'],
+            [['name','email'], 'string', 'max' => 60],
             [['created_at'], 'safe'],
         ];
     }
@@ -37,7 +37,7 @@ class UserSearch extends User
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
             'pagination' => [
-                'pageSize' => Yii::$app->params['pagination']['pageSize'],
+                'pageSize' => 25,
             ],
         ]);
 
@@ -47,11 +47,11 @@ class UserSearch extends User
             return $dataProvider;
 
         $query->andFilterWhere(['id' => $this->id]);
-        $query->andFilterWhere(['grupo_id' => $this->grupo_id]);
+        $query->andFilterWhere(['group_id' => $this->group_id]);
         $query->andFilterWhere(['status' => $this->status]);
-        $query->andFilterWhere(['like', 'nome', $this->nome]);
+        $query->andFilterWhere(['like', 'name', $this->name]);
         $query->andFilterWhere(['like', 'email', $this->email]);
-        $query->orderBy('nome');
+        $query->orderBy('name');
 
         return $dataProvider;
     }

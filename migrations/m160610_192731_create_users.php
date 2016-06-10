@@ -23,7 +23,7 @@ class m160610_192731_create_users extends Migration
             'name' => $this->string(60)->notNull(),
             'email' => $this->string(60)->notNull(),
             'password' => $this->string(60)->notNull(),
-            'token' => $this->string(100)->defaultValue(null),
+            'access_token' => $this->string(100)->defaultValue(null),
             'auth_key' => $this->string(100)->defaultValue(null),
             'status' => $this->smallInteger(1)->notNull()->defaultValue(1),
             'deleted' => $this->smallInteger(1)->notNull()->defaultValue(0),
