@@ -3,7 +3,7 @@
 namespace dersonsena\userModule\controllers;
 
 use Yii;
-use dersonsena\commonClasses\ControllerBase;
+use dersonsena\commonClasses\controller\ControllerBase;
 use dersonsena\userModule\forms\ForgotPasswordForm;
 use dersonsena\userModule\forms\LoginForm;
 use dersonsena\userModule\forms\RenewPasswordForm;
