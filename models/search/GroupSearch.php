@@ -35,6 +35,9 @@ class GroupSearch extends Group
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
+            'sort'=> [
+                'defaultOrder' => ['name' => SORT_ASC]
+            ],
             'pagination' => [
                 'pageSize' => Yii::$app->params['pagination']['pageSize'],
             ],

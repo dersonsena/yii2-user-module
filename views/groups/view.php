@@ -1,8 +1,8 @@
 <?php
 /* @var $this yii\web\View */
-/* @var $model \app\modules\backend\models\Grupo */
+/* @var $model \dersonsena\userModule\models\Group */
 
-use app\common\controller\ControllerBase;
+use dersonsena\commonClasses\controller\ControllerBase;
 use yii\widgets\DetailView;
 
 $this->params['breadcrumbs'][] = [
@@ -15,7 +15,7 @@ $this->params['breadcrumbs'][] = $this->context->actionDescription;
 
 <div class="box form-actions">
     <div class="box-body">
-        <?= $this->render('@backend/views/partials/crud/view-default-buttons') ?>
+        <?= $this->render('@common-classes/views/crud/view-default-buttons') ?>
     </div>
 </div>
 
@@ -27,7 +27,7 @@ $this->params['breadcrumbs'][] = $this->context->actionDescription;
             'model' => $model,
             'attributes' => [
                 'id',
-                'nome',
+                'name',
                 [
                     'attribute' => 'status',
                     'format' => 'raw',
@@ -35,7 +35,7 @@ $this->params['breadcrumbs'][] = $this->context->actionDescription;
                 ],
                 'created_at',
                 'updated_at',
-                'usuarioIns.nome:text:' . $model->getAttributeLabel('usuario_ins_id'),
+                'createdBy.name:text:' . $model->getAttributeLabel('created_by'),
             ],
         ]) ?>
 

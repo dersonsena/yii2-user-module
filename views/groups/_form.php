@@ -1,6 +1,6 @@
 <?php
 /* @var yii\web\View $this */
-/* @var \app\modules\backend\models\Grupo $model */
+/* @var \dersonsena\userModule\models\Group $model */
 
 use yii\bootstrap\ActiveForm;
 ?>
@@ -11,7 +11,7 @@ use yii\bootstrap\ActiveForm;
 
     <div class="box form-actions">
         <div class="box-body">
-            <?= $this->render('@backend/views/partials/crud/form-default-buttons') ?>
+            <?= $this->render('@common-classes/views/crud/form-default-buttons') ?>
         </div>
     </div>
 
@@ -26,7 +26,7 @@ use yii\bootstrap\ActiveForm;
             <div class="row">
 
                 <div class="col-md-4">
-                    <?= $form->field($model, 'nome') ?>
+                    <?= $form->field($model, 'name') ?>
                 </div>
 
             </div>

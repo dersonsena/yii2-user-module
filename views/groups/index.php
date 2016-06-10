@@ -1,9 +1,9 @@
 <?php
 /* @var $this yii\web\View */
-/* @var $searchModel \app\modules\backend\models\GrupoSearch */
+/* @var $searchModel \dersonsena\userModule\models\search\GroupSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-use app\common\controller\ControllerBase;
+use dersonsena\commonClasses\controller\ControllerBase;
 use yii\grid\GridView;
 use yii\widgets\Pjax;
 
@@ -14,7 +14,7 @@ $this->params['breadcrumbs'][] = $this->context->controllerDescription;
     <div class="box-body">
 
         <section class="well well-sm">
-            <?= $this->render('@backend/views/partials/crud/index-default-actions') ?>
+            <?= $this->render('@common-classes/views/crud/index-default-actions') ?>
         </section>
 
         <?php Pjax::begin() ?>
@@ -28,15 +28,15 @@ $this->params['breadcrumbs'][] = $this->context->controllerDescription;
                     'contentOptions' => ['class' => 'text-right'],
                 ],
                 [
-                    'attribute' => 'nome',
-                    'class' => 'app\common\components\LinkDataColumn',
+                    'attribute' => 'name',
+                    'class' => 'dersonsena\commonClasses\components\grid\LinkDataColumn',
                 ],
                 [
                     'attribute' => 'status',
-                    'class' => 'app\common\components\YesNoDataColumn',
+                    'class' => 'dersonsena\commonClasses\components\grid\YesNoDataColumn',
                     'filter' => ControllerBase::getStatus()
                 ],
-                ['class' => 'app\common\components\ActionGridColumn'],
+                ['class' => 'dersonsena\commonClasses\components\grid\ActionGridColumn'],
             ],
         ]) ?>
         <?php Pjax::end() ?>
