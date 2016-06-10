@@ -1,16 +1,19 @@
 {
   "name": "dersonsena/yii2-user-module",
   "description": "Implementação padrão de um Módulo de Usuários para meus projetos no Yii2",
+  "version" : "1.0.0",
   "keywords": [
     "yii2",
     "user-module",
     "yii2 user module"
   ],
   "type": "yii2-extension",
+  "license": "BSD-3-Clause",
   "authors": [
     {
       "name": "Kilderson Sena",
-      "email": "dersonsena@gmail.com"
+      "email": "dersonsena@gmail.com",
+      "role": "Developer"
     }
   ],
   "minimum-stability": "dev",
@@ -21,9 +24,17 @@
     "kartik-v/yii2-widget-activeform": "^1.4",
     "kartik-v/yii2-password": "^1.5"
   },
+  "require-dev": {
+    "phpunit/phpunit": "4.0.*"
+  },
   "autoload": {
     "psr-4": {
       "dersonsena\\userModule\\": ""
+    }
+  },
+  "extra": {
+    "asset-installer-paths": {
+      "bower-asset-library": "vendor/bower"
     }
   }
 }
