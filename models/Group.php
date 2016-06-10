@@ -3,7 +3,7 @@
 namespace dersonsena\userModule\models;
 
 use Yii;
-use yii\db\ActiveRecord;
+use dersonsena\commonClasses\ModelBase;
 
 /**
  * This is the model class for table "grupos".
@@ -19,7 +19,7 @@ use yii\db\ActiveRecord;
  * @property User[] $users
  * @property User $userIns
  */
-class Group extends ActiveRecord
+class Group extends ModelBase
 {
     const ADMIN_GROUP = 1;
 

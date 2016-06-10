@@ -3,11 +3,11 @@
 namespace dersonsena\userModule\controllers;
 
 use Yii;
+use dersonsena\commonClasses\ControllerBase;
 use dersonsena\userModule\models\User;
 use dersonsena\userModule\models\search\UserSearch;
-use yii\web\Controller;
 
-class DefaultController extends Controller
+class DefaultController extends ControllerBase
 {
     public $controllerDescription = 'Usuários';
     protected $createScenario = 'create';

@@ -3,7 +3,7 @@
 namespace dersonsena\userModule\models;
 
 use Yii;
-use yii\db\ActiveRecord;
+use dersonsena\commonClasses\ModelBase;
 use yii\web\IdentityInterface;
 
 /**
@@ -25,7 +25,7 @@ use yii\web\IdentityInterface;
  * @property Group $group
  * @property User $userIns
  */
-class User extends ActiveRecord implements IdentityInterface
+class User extends ModelBase implements IdentityInterface
 {
     /**
      * @var string

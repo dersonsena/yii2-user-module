@@ -2,11 +2,11 @@
 
 namespace dersonsena\userModule\controllers;
 
+use dersonsena\commonClasses\ControllerBase;
 use dersonsena\userModule\models\Group;
 use dersonsena\userModule\models\search\GroupSearch;
-use yii\base\Controller;
 
-class GroupsController extends Controller
+class GroupsController extends ControllerBase
 {
     public $controllerDescription = 'Grupos de Usuário';
     

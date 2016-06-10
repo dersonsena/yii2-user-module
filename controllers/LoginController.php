@@ -3,15 +3,15 @@
 namespace dersonsena\userModule\controllers;
 
 use Yii;
+use dersonsena\commonClasses\ControllerBase;
 use dersonsena\userModule\forms\ForgotPasswordForm;
 use dersonsena\userModule\forms\LoginForm;
 use dersonsena\userModule\forms\RenewPasswordForm;
 use dersonsena\userModule\models\User;
 use yii\base\Exception;
 use yii\base\UserException;
-use yii\web\Controller;
 
-class LoginController extends Controller
+class LoginController extends ControllerBase
 {
     public $layout = '@backend/views/layouts/login';
     public $controllerDescription = 'Autenticação';
