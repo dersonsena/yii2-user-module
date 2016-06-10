@@ -27,4 +27,9 @@ class DefaultController extends Controller
     {
         return new UserSearch;
     }
+
+    public function actionIndex()
+    {
+        return $this->render('index');
+    }
 }
