@@ -73,17 +73,17 @@ class User extends ModelBase implements IdentityInterface
     {
         return [
             'id' => $this->idLabel,
-            'group_id' => 'Grupos de Usuário',
-            'name' => 'Nome',
-            'email' => 'E-mail',
-            'password' => 'Senha',
-            'auth_key' => 'Auth Key',
-            'access_token' => 'Access Token',
-            'status' => 'Usuário ativo',
+            'group_id' => Yii::t('user', 'User Group'),
+            'name' => Yii::t('user', 'Name'),
+            'email' => Yii::t('user', 'E-mail'),
+            'password' => Yii::t('user', 'Password'),
+            'auth_key' => Yii::t('user', 'Auth Key'),
+            'access_token' => Yii::t('user', 'Access Token'),
+            'status' => Yii::t('user', 'Active user'),
             'created_at' => $this->createdAtLabel,
             'updated_at' => $this->updateAtLabel,
             'created_by' => $this->userInsIdLabel,
-            'repeatPassword' => 'Repita sua password'
+            'repeatPassword' => Yii::t('user', 'Retype your password')
         ];
     }
 

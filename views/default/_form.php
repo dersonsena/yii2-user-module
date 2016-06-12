@@ -42,7 +42,7 @@ use kartik\password\PasswordInput;
                 <div class="col-md-4">
                     <?= $form->field($model, 'group_id', ['template'=>"{label}{input}{error}{hint}"])
                         ->dropDownList((new Group)->getDropdownOptions('name'), [
-                            'prompt' => Yii::t('user', ':: Select a User Group ::')
+                            'prompt' => '::' . Yii::t('user', 'Select a User Group') . '::'
                         ]) ?>
                 </div>
 
