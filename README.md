@@ -32,3 +32,9 @@ Execute o comando abaixo para criação das tabelas ```users``` e ```groups```
 ```
 php yii migrate --migrationPath=@vendor/dersonsena/yii2-user-module/migrations
 ```
+
+Abaixo seguem as credenciais de acesso:
+
+E-mail: admin@admin.com.br
+
+Senha: 123456

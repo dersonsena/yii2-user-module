@@ -20,7 +20,9 @@ use kartik\password\PasswordInput;
     <div class="box box-primary">
 
         <div class="box-header with-border">
-            <h3 class="box-title">Formulário</h3>
+            <h3 class="box-title">
+                <?= Yii::t('user', 'Form') ?>
+            </h3>
         </div>
 
         <div class="box-body">
@@ -40,7 +42,7 @@ use kartik\password\PasswordInput;
                 <div class="col-md-4">
                     <?= $form->field($model, 'group_id', ['template'=>"{label}{input}{error}{hint}"])
                         ->dropDownList((new Group)->getDropdownOptions('name'), [
-                            'prompt' => 'Selecione um Grupo de Usuário...'
+                            'prompt' => Yii::t('user', ':: Select a User Group ::')
                         ]) ?>
                 </div>
 
@@ -50,7 +52,7 @@ use kartik\password\PasswordInput;
                 <div class="col-md-4">
                     <?= $form->field($model, 'password')
                         ->passwordInput(['maxlength' => true])
-                        ->hint($model->isNewRecord ? null : 'Mantenha o campo vazio para que a senha atual não seja alterada.')
+                        ->hint($model->isNewRecord ? null : Yii::t('user', 'Password message'))
                         ->widget(PasswordInput::classname(), [
                             'language' => 'pt-BR'
                         ])

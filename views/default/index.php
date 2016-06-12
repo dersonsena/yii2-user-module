@@ -41,6 +41,7 @@ $this->params['breadcrumbs'][] = $this->context->controllerDescription;
                     'attribute' => 'group_id',
                     'filter' => (new Group)->getDropdownOptions('name'),
                     'headerOptions' => ['style' => 'width: 150px'],
+                    'contentOptions' => ['class' => 'text-center'],
                     'value' => 'group.name'
                 ],
                 [
