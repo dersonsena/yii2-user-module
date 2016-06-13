@@ -1,3 +1,8 @@
+[![Latest Stable Version](https://poser.pugx.org/dersonsena/yii2-user-module/v/stable)](https://packagist.org/packages/dersonsena/yii2-user-module)
+[![Total Downloads](https://poser.pugx.org/dersonsena/yii2-user-module/downloads)](https://packagist.org/packages/dersonsena/yii2-user-module)
+[![Latest Unstable Version](https://poser.pugx.org/dersonsena/yii2-user-module/v/unstable)](https://packagist.org/packages/dersonsena/yii2-user-module)
+[![License](https://poser.pugx.org/dersonsena/yii2-user-module/license)](https://packagist.org/packages/dersonsena/yii2-user-module)
+
 Yii2 User Module
 ===========================
 
@@ -16,7 +21,7 @@ Execute no seu terminal
 $ php composer.phar require dersonsena/yii2-user-module "dev-master"
 ```
 
-ou adicione 
+ou adicione
 
 ```
 "dersonsena/yii2-user-module": "dev-master"
