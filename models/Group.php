@@ -51,7 +51,7 @@ class Group extends ModelBase
     {
         return [
             'id' => $this->idLabel,
-            'name' => 'Nome',
+            'name' => Yii::t('user', 'Name'),
             'status' => $this->statusLabel,
             'created_at' => $this->createdAtLabel,
             'updated_at' => $this->updateAtLabel,
@@ -62,7 +62,7 @@ class Group extends ModelBase
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getUsuarios()
+    public function getUsers()
     {
         return $this->hasMany(User::className(), ['grupo_id' => 'id']);
     }

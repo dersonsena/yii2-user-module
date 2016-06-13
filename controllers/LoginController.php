@@ -14,7 +14,6 @@ use yii\base\UserException;
 class LoginController extends ControllerBase
 {
     public $layout = '@backend/views/layouts/login';
-    public $controllerDescription = 'Autenticação';
 
     /**
      * @inheritdoc
@@ -32,11 +31,17 @@ class LoginController extends ControllerBase
         return;
     }
 
+    public function init()
+    {
+        parent::init();
+        $this->controllerDescription = Yii::t('user', 'Authentication');
+    }
+
     /**
      * Página de login.
      * @return string|\yii\web\Response
      */
-    public function actionLogin()
+    public function actionIndex()
     {
         if(!$this->getUser()->isGuest)
             return $this->redirect($this->getUser()->returnUrl);
@@ -51,7 +56,7 @@ class LoginController extends ControllerBase
                     return $this->redirect($this->getUser()->returnUrl);
             }
 
-            return $this->render('login', [
+            return $this->render('index', [
                 'model' => $model,
             ]);
 

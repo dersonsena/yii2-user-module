@@ -1,7 +1,7 @@
 <?php
 /* @var $this yii\web\View */
 /* @var $form yii\bootstrap\ActiveForm */
-/* @var $model \app\modules\backend\forms\LoginForm */
+/* @var $model \dersonsena\userModule\forms\LoginForm */
 
 use yii\bootstrap\Html;
 use yii\bootstrap\ActiveForm;

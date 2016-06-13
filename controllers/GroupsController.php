@@ -5,11 +5,16 @@ namespace dersonsena\userModule\controllers;
 use dersonsena\commonClasses\controller\CrudController;
 use dersonsena\userModule\models\Group;
 use dersonsena\userModule\models\search\GroupSearch;
+use Yii;
 
 class GroupsController extends CrudController
 {
-    public $controllerDescription = 'Grupos de Usuário';
-    
+    public function init()
+    {
+        parent::init();
+        $this->controllerDescription = Yii::t('user', 'User Group');
+    }
+
     /**
      * @inheritdoc
      */

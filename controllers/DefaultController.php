@@ -10,8 +10,13 @@ use dersonsena\userModule\models\search\UserSearch;
 
 class DefaultController extends CrudController
 {
-    public $controllerDescription = 'Usuários';
     protected $createScenario = 'create';
+
+    public function init()
+    {
+        parent::init();
+        $this->controllerDescription = Yii::t('user', 'User');
+    }
 
     /**
      * @inheritdoc
