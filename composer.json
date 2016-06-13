@@ -1,7 +1,6 @@
 {
   "name": "dersonsena/yii2-user-module",
   "description": "Implementação padrão de um Módulo de Usuários para meus projetos pessoais no Yii2",
-  "version" : "1.0.0",
   "keywords": [
     "yii2",
     "user-module",
